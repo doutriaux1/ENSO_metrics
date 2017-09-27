@@ -15,8 +15,8 @@ from pcmdi_metrics.pcmdi.pmp_parser import PMPParser
 import collections
 from collections import defaultdict
 
-#debug = True
-debug = False
+debug = True
+#debug = False
 
 def tree(): return defaultdict(tree)
 
@@ -48,7 +48,7 @@ P.add_argument("--op", "--obspath",
                help="Explicit path to obs monthly PR or TS time series")
 P.add_argument('--mns', '--modnames',
                type=str,
-               nargs='+',
+               nparam='+',
                dest='modnames',
                required=True,
                help='Models to apply')
@@ -77,34 +77,18 @@ P.add_argument("--outpd", "--outpathdata",
                dest='outpathdata',
                default='.',
                help="Output path for data")
-P.add_argument("-e", "--experiment",
-               type=str,
-               dest='experiment',
-               default='historical',
-               help="AMIP, historical or picontrol")
-P.add_argument("-c", "--MIP",
-               type=str,
-               dest='mip',
-               default='CMIP5',
-               help="put options here")
-P.add_argument("-p", "--parameters",
-               type=str,
-               dest='parameters',
-               default='',
-               help="")
 
-args = P.parse_args(sys.argv[1:])
+param = P.get_parameter()
 
-modpath = args.modpath
-obspath = args.obspath
-mods = args.modnames
-var = args.variable
-varobs = args.variableobs
+modpath = param.modpath
+obspath = param.obspath
+mods = param.modnames
+var = param.variable
+varobs = param.variableobs
 if varobs == '': varobs = var
-outpathjsons = args.outpathjsons
-outfilejson = args.jsonname
-outpathdata = args.outpathdata
-exp = args.experiment
+outpathjsons = param.outpathjsons
+outfilejson = param.jsonname
+outpathdata = param.outpathdata
 
 ##########################################################
 libfiles = ['monthly_variability_statistics.py',
@@ -112,7 +96,6 @@ libfiles = ['monthly_variability_statistics.py',
 
 for lib in libfiles:
   execfile(os.path.join('./lib/',lib))
-
 ##########################################################
 
 # Setup where to output resulting ---
@@ -123,15 +106,22 @@ except BaseException:
     pass
 
 # Insert observation at the beginning of the loop ---
-models = copy.copy(args.modnames)
-if obspath != '':
-    models.insert(0,'obs')
+models = copy.copy(param.modnames)
+#if obspath != '':
+#    models.insert(0,'obs')
+#............... Let's think about OBS data later...
 
-metrics = ['EnsoAmpl', 'EnsoMu']
+#............... Below is hardcoded now but will be moved to parameter file
+#metrics = ['EnsoAmpl', 'EnsoMu']
+metrics = ['EnsoAmpl']
+
+# Variable name and nino box
+sstName = 'ts'
+tauxName= 'tauu'
+ninoBox = 'nino3'
 
 # Dictionary to save result ---
-# Use tree structure dictionary to avoid declearing everytime
-enso_stat_dic = tree()
+enso_stat_dic = tree() # Use tree dictionary to avoid declearing everytime
 
 #=================================================
 # Loop for Observation and Models 
@@ -139,51 +129,60 @@ enso_stat_dic = tree()
 for mod in models:
     print ' ----- ', mod,' ---------------------'
   
-    if mod == 'obs':
-        file_path = obspath
-        varname = varobs
-        mods_key = 'OBSERVATION'
-    else:
-        file_path = modpath.replace('MODS', mod)
-        varname = var
-        mods_key = 'MODELS'
+    #if mod == 'obs':
+    #    file_path = obspath
+    #    varname = varobs
+    #    mods_key = 'OBSERVATION'
+    #else:
+    #    file_path = modpath.replace('MODS', mod)
+    #    varname = var
+    #    mods_key = 'MODELS'
+    #............... Let's think about OBS data later...
+
+    sstFile = (modpath.replace('MOD', mod)).replace('VAR',sstName) ## Will need land mask out at some point...!
+    tauxFile = (modpath.replace('MOD', mod)).replace('VAR',tauxName)
   
     try:
         #f = cdms2.open(file_path)   ### Major difference between Eric's code and this driver: where to open the file?! in driver? in lib?
-        enso_stat_dic[mods_key][mod]['input_data'] = file_path
+        #enso_stat_dic[mods_key][mod]['input_data'] = file_path
+        enso_stat_dic[mod]['input_data'] = file_path
     
         if debug: print file_path 
       
         for metric in metrics:
-            tmp_dict = EnsoAmpl(sstfile, sstname, ninobox)  ####### Temporay for placeholding!!!!!
+            if metric == 'EnsoAmpl':
+                tmp_dict = EnsoAmpl(sstfile, sstname, ninobox)
+            elif metric == 'EnsoMu':
+                tmp_dict = EnsoMu(sstFile, tauxFile, sstName, tauxName)
         
             # Record returned metric dictionary to mother dictionay for json ---
-            enso_stat_dic[mods_key][mod][metric]['entire'] = tmp_dict
+            #enso_stat_dic[mods_key][mod][metric]['entire'] = tmp_dict
+            enso_stat_dic[mod][metric] = tmp_dict
         
             # Multiple centuries (only for models) ---   ###### Below part would be available once after we decide where to open file...
-            if mod != 'obs':
-                ntstep = len(reg_timeseries) # Assume input has monthly interval
-                if debug:
-                    itstep = 24 # 2-yrs
-                else:
-                    itstep = 1200 # 100-yrs
-          
-                for t in tstep_range(0, ntstep, itstep):
-                    etstep = t+itstep
-                    if etstep <= ntstep:
-                        if debug: print t, etstep
-                        reg_timeseries_cut = reg_timeseries[t:etstep] 
-                        std = interannual_variabilty_std_annual_cycle_removed(reg_timeseries_cut)
-                        std_NDJ = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'NDJ')
-                        std_MAM = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'MAM')
-                        tkey=str((t/12)+1)+'-'+str((etstep)/12)+'yrs'
-                        enso_stat_dic[mods_key][mod][reg]['std'][tkey] = std
-                        enso_stat_dic[mods_key][mod][reg]['std_NDJ'][tkey] = std_NDJ
-                        enso_stat_dic[mods_key][mod][reg]['std_MAM'][tkey] = std_MAM
-                        enso_stat_dic[mods_key][mod][reg]['seasonality'][tkey] = std_NDJ/std_MAM ## Fig. 3b of Bellenger et al. 2014
-            
-                enso_stat_dic[mods_key][mod]['entire_yrs'] = ntstep/12
-        f.close()
+            #if mod != 'obs':
+            #    ntstep = len(reg_timeseries) # Assume input has monthly interval
+            #    if debug:
+            #        itstep = 24 # 2-yrs
+            #    else:
+            #        itstep = 1200 # 100-yrs
+            # 
+            #    for t in tstep_range(0, ntstep, itstep):
+            #        etstep = t+itstep
+            #        if etstep <= ntstep:
+            #            if debug: print t, etstep
+            #            reg_timeseries_cut = reg_timeseries[t:etstep] 
+            #            std = interannual_variabilty_std_annual_cycle_removed(reg_timeseries_cut)
+            #            std_NDJ = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'NDJ')
+            #            std_MAM = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'MAM')
+            #            tkey=str((t/12)+1)+'-'+str((etstep)/12)+'yrs'
+            #            enso_stat_dic[mods_key][mod][reg]['std'][tkey] = std
+            #            enso_stat_dic[mods_key][mod][reg]['std_NDJ'][tkey] = std_NDJ
+            #            enso_stat_dic[mods_key][mod][reg]['std_MAM'][tkey] = std_MAM
+            #            enso_stat_dic[mods_key][mod][reg]['seasonality'][tkey] = std_NDJ/std_MAM ## Fig. 3b of Bellenger et al. 2014
+            #
+            #    enso_stat_dic[mods_key][mod]['entire_yrs'] = ntstep/12
+        #f.close()
     
     except:
         print 'failed for ', mod

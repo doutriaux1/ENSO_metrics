@@ -13,3 +13,12 @@ variableobs = "sst"
 outpathdata = "/work/lee1043/cdat/pmp/enso/test"
 outpathjsons = "/work/lee1043/cdat/pmp/enso/test"
 outnamejson = "test.json"
+
+# Metrics
+#metrics = ['EnsoAmpl', 'EnsoMu']
+metrics = ['EnsoAmpl']
+
+# Variable name and nino box
+sstName = 'ts'
+tauxName= 'tauu'
+ninoBox = 'nino3'
