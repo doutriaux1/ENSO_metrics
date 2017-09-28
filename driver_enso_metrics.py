@@ -14,6 +14,7 @@ import pcmdi_metrics
 from pcmdi_metrics.pcmdi.pmp_parser import PMPParser
 import collections
 from collections import defaultdict
+from EnsoMetricsLib import EnsoAmpl, EnsoMu
 
 debug = True
 #debug = False
@@ -141,7 +142,8 @@ for mod in models:
     print sstFile
     print tauxFile
   
-    try:
+    #try:
+    if 1:
         #f = cdms2.open(file_path)   ### Major difference between Eric's code and this driver: where to open the file?! in driver? in lib?
         #enso_stat_dic[mods_key][mod]['input_data'] = file_path
     
@@ -187,7 +189,8 @@ for mod in models:
             #    enso_stat_dic[mods_key][mod]['entire_yrs'] = ntstep/12
         #f.close()
     
-    except:
+    else:
+    #except:
         print 'failed for ', mod
   
 #=================================================
@@ -210,7 +213,7 @@ metrics_dictionary["RESULTS"] = enso_stat_dic  # collections.OrderedDict()
 OUT.var = var
 OUT.write(
     metrics_dictionary,
-    json_structure=["model", "index", "statistic", "period_chunk"],
+    json_structure=["model", "metric", "item", "value or description"],
     indent=4,
     separators=(
         ',',

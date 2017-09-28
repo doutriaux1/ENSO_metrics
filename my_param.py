@@ -10,13 +10,15 @@ variable = "ts"
 variableobs = "sst"
 
 # Output
-outpathdata = "/work/lee1043/cdat/pmp/enso/test"
-outpathjsons = "/work/lee1043/cdat/pmp/enso/test"
+#outpathdata = "/work/lee1043/cdat/pmp/enso/test"
+#outpathjsons = "/work/lee1043/cdat/pmp/enso/test"
+outpathdata = "."
+outpathjsons = "."
 outnamejson = "test.json"
 
 # Metrics
-#metrics = ['EnsoAmpl', 'EnsoMu']
-metrics = ['EnsoAmpl']
+metrics = ['EnsoAmpl', 'EnsoMu']
+#metrics = ['EnsoAmpl']
 
 # Variable name and nino box
 sstName = 'ts'
