@@ -22,18 +22,6 @@ debug = True
 def tree(): return defaultdict(tree)
 
 #########################################################
-# SAMPLE COMMAND LINE EXECUTION USING ARGUMENTS BELOW
-#########################################################
-# python enso_bellenger_compute.py 
-# -mp /work/cmip5/piControl/atm/mo/ts/cmip5.MODS.piControl.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml
-# -op /clim_obs/obs/ocn/mo/tos/UKMETOFFICE-HadISST-v1-1/130122_HadISST_sst.nc
-# --mns ACCESS1-0 ACCESS1-3
-# --var ts
-# --varobs sst (varobs needed only when varname is different to model in obs)
-# --outpd /work/lee1043/cdat/pmp/enso/test
-# --outpj /work/lee1043/cdat/pmp/enso/test 
-# --outnj output.json 
-#########################################################
 
 P = PMPParser() # Includes all default options
 
@@ -89,15 +77,13 @@ print mods
 print var
 print metrics
 
-#sys.exit()
-
 ##########################################################
 libfiles = ['monthly_variability_statistics.py',
             #'slice_tstep.py',
            ]
 
-for lib in libfiles:
-  execfile(os.path.join('.',lib))
+#for lib in libfiles:
+#  execfile(os.path.join('.',lib))
 ##########################################################
 
 # Setup where to output resulting ---
@@ -161,35 +147,8 @@ for mod in models:
                 tmp_dict = EnsoMu(sstFile, tauxFile, sstName, tauxName)
                 tmp_dict['input_data'] = [sstFile, tauxFile]
         
-            # Record returned metric dictionary to mother dictionay for json ---
-            #enso_stat_dic[mods_key][mod][metric]['entire'] = tmp_dict
             enso_stat_dic[mod][metric] = tmp_dict
         
-            # Multiple centuries (only for models) ---   ###### Below part would be available once after we decide where to open file...
-            #if mod != 'obs':
-            #    ntstep = len(reg_timeseries) # Assume input has monthly interval
-            #    if debug:
-            #        itstep = 24 # 2-yrs
-            #    else:
-            #        itstep = 1200 # 100-yrs
-            # 
-            #    for t in tstep_range(0, ntstep, itstep):
-            #        etstep = t+itstep
-            #        if etstep <= ntstep:
-            #            if debug: print t, etstep
-            #            reg_timeseries_cut = reg_timeseries[t:etstep] 
-            #            std = interannual_variabilty_std_annual_cycle_removed(reg_timeseries_cut)
-            #            std_NDJ = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'NDJ')
-            #            std_MAM = interannual_variability_seasonal_std_mean_removed(reg_timeseries_cut,'MAM')
-            #            tkey=str((t/12)+1)+'-'+str((etstep)/12)+'yrs'
-            #            enso_stat_dic[mods_key][mod][reg]['std'][tkey] = std
-            #            enso_stat_dic[mods_key][mod][reg]['std_NDJ'][tkey] = std_NDJ
-            #            enso_stat_dic[mods_key][mod][reg]['std_MAM'][tkey] = std_MAM
-            #            enso_stat_dic[mods_key][mod][reg]['seasonality'][tkey] = std_NDJ/std_MAM ## Fig. 3b of Bellenger et al. 2014
-            #
-            #    enso_stat_dic[mods_key][mod]['entire_yrs'] = ntstep/12
-        #f.close()
-    
     else:
     #except:
         print 'failed for ', mod
