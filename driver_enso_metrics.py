@@ -19,10 +19,7 @@ from EnsoMetricsLib import EnsoAmpl, EnsoMu
 debug = True
 #debug = False
 
-def tree(): return defaultdict(tree)
-
 #########################################################
-
 P = PMPParser() # Includes all default options
 
 P.add_argument("-mp", "--modpath",
@@ -57,6 +54,18 @@ P.add_argument("-mx", "--metrics",
                type=str,
                dest='metrics',
                help="List of metrics")
+P.add_argument("--sstName",
+               type=str,
+               dest='sstName',
+               help="Variable name for SST in the model")
+P.add_argument("--tauxName",
+               type=str,
+               dest='tauxName',
+               help="Variable name for taux in the model")
+P.add_argument("--ninoBox",
+               type=str,
+               dest='ninoBox',
+               help="Nino index region to analyze")
 
 param = P.get_parameter()
 
@@ -70,20 +79,18 @@ outpathjsons = param.outpathjsons
 outfilejson = param.outnamejson
 outpathdata = param.outpathdata
 metrics = param.metrics
+sstName = param.sstName
+tauxName = param.tauxName
+ninoBox = param.ninoBox
 
 print modpath
 print obspath
 print mods
 print var
 print metrics
-
-##########################################################
-libfiles = ['monthly_variability_statistics.py',
-            #'slice_tstep.py',
-           ]
-
-#for lib in libfiles:
-#  execfile(os.path.join('.',lib))
+print sstName
+print tauxName
+print ninoBox
 ##########################################################
 
 # Setup where to output resulting ---
@@ -99,12 +106,8 @@ models = copy.copy(param.modnames)
 #    models.insert(0,'obs')
 #............... Let's think about OBS data later...
 
-# Variable name and nino box
-sstName = 'ts'
-tauxName= 'tauu'
-ninoBox = 'nino3'
-
 # Dictionary to save result ---
+def tree(): return defaultdict(tree)
 enso_stat_dic = tree() # Use tree dictionary to avoid declearing everytime
 
 #=================================================
