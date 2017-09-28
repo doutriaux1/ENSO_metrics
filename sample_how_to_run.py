@@ -20,6 +20,6 @@ cmd = """./driver_enso_metrics.py \
 
 # or..
 
-#cmd = """./driver_enso_metrics.py -p my_parameter.py"""
+#cmd = """./driver_enso_metrics.py -p my_param.py"""
 
 subprocess.Popen(cmd, shell=True)
