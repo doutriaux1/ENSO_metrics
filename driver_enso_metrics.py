@@ -156,10 +156,10 @@ for mod in models:
 
             if metric == 'EnsoAmpl':
                 tmp_dict = EnsoAmpl(sstFile, sstName, ninoBox)
-                enso_stat_dic[mod][metric]['input_data'] = [sstFile]
+                tmp_dict['input_data'] = [sstFile]
             elif metric == 'EnsoMu':
                 tmp_dict = EnsoMu(sstFile, tauxFile, sstName, tauxName)
-                enso_stat_dic[mod][metric]['input_data'] = [sstFile, tauxFile]
+                tmp_dict['input_data'] = [sstFile, tauxFile]
         
             # Record returned metric dictionary to mother dictionay for json ---
             #enso_stat_dic[mods_key][mod][metric]['entire'] = tmp_dict

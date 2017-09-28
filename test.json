@@ -4,6 +4,9 @@
     "RESULTS": {
         "IPSL-CM5A-LR": {
             "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
                 "method": "Standard deviation of SST in nino3",
                 "name": "ENSO amplitude",
                 "nyears": 156,
@@ -33,7 +36,7 @@
             "buildVersion": "not installed",
             "envVersion": "4.3.24"
         },
-        "date": "2017-09-27 17:25:24",
+        "date": "2017-09-27 17:30:09",
         "openGL": {
             "GLX": {
                 "client": {},
