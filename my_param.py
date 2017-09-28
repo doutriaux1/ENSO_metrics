@@ -17,8 +17,8 @@ outpathjsons = "."
 outnamejson = "test.json"
 
 # Metrics
-metrics = ['EnsoAmpl', 'EnsoMu']
-#metrics = ['EnsoAmpl']
+#metrics = ['EnsoAmpl', 'EnsoMu']
+metrics = ['EnsoAmpl']
 
 # Variable name and nino box
 sstName = 'ts'

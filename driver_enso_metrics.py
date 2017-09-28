@@ -47,9 +47,8 @@ P.add_argument("-op", "--obspath",
                help="Directory path to obs monthly field")
 P.add_argument("-mns", "--modnames",
                type=str,
-               nargs='+',
                dest='modnames',
-               help="Models to apply")
+               help="List of models to apply")
 P.add_argument("-varobs", "--variableobs",
                type=str,
                dest='variableobs',
@@ -66,6 +65,10 @@ P.add_argument("-outpd", "--outpathdata",
                type=str,
                dest='outpathdata',
                help="Output path for data")
+P.add_argument("-mx", "--metrics",
+               type=str,
+               dest='metrics',
+               help="List of metrics")
 
 param = P.get_parameter()
 
@@ -78,11 +81,13 @@ if varobs == '': varobs = var
 outpathjsons = param.outpathjsons
 outfilejson = param.outnamejson
 outpathdata = param.outpathdata
+metrics = param.metrics
 
 print modpath
 print obspath
 print mods
 print var
+print metrics
 
 #sys.exit()
 
@@ -107,10 +112,6 @@ models = copy.copy(param.modnames)
 #if obspath != '':
 #    models.insert(0,'obs')
 #............... Let's think about OBS data later...
-
-#............... Below is hardcoded now but will be moved to parameter file
-#metrics = ['EnsoAmpl', 'EnsoMu']
-metrics = ['EnsoAmpl']
 
 # Variable name and nino box
 sstName = 'ts'
