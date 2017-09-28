@@ -2,8 +2,8 @@
 obspath = "/clim_obs/obs/ocn/mo/tos/UKMETOFFICE-HadISST-v1-1/130122_HadISST_sst.nc"
 
 # Directory path for models
-modpath = "/work/cmip5/piControl/atm/mo/VAR/cmip5.MOD.historical.r1i1p1.mo.atm.Amon.VAR.ver-1.latestX.xml"
-modnames = "IPSL-CM5A-LR" #"ACCESS1-0 ACCESS1-3"
+modpath = "/work/cmip5/historical/atm/mo/VAR/cmip5.MOD.historical.r1i1p1.mo.atm.Amon.VAR.ver-1.latestX.xml"
+modnames = ["IPSL-CM5A-LR"] #"ACCESS1-0 ACCESS1-3"
 
 # Variables
 variable = "ts"

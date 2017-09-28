@@ -36,46 +36,34 @@ def tree(): return defaultdict(tree)
 
 P = PMPParser() # Includes all default options
 
-P.add_argument("--mp", "--modpath",
+P.add_argument("-mp", "--modpath",
                type=str,
                dest='modpath',
-               required=True,
-               help="Explicit path to model monthly PR or TS time series")
-P.add_argument("--op", "--obspath",
+               help="Directory path to model monthly field")
+P.add_argument("-op", "--obspath",
                type=str,
                dest='obspath',
-               default='',
-               help="Explicit path to obs monthly PR or TS time series")
-P.add_argument('--mns', '--modnames',
+               help="Directory path to obs monthly field")
+P.add_argument("-mns", "--modnames",
                type=str,
-               nparam='+',
+               nargs='+',
                dest='modnames',
-               required=True,
-               help='Models to apply')
-P.add_argument("--var", "--variable",
-               type=str,
-               dest='variable',
-               default='ts',
-               help="Variable: 'pr' or 'ts (default)'")
-P.add_argument("--varobs", "--variableobs",
+               help="Models to apply")
+P.add_argument("-varobs", "--variableobs",
                type=str,
                dest='variableobs',
-               default='',
-               help="Variable name in observation (default: same as var)")
-P.add_argument("--outpj", "--outpathjsons",
+               help="Variable name in observation")
+P.add_argument("-outpj", "--outpathjsons",
                type=str,
                dest='outpathjsons',
-               default='.',
                help="Output path for jsons")
-P.add_argument("--outnj", "--outnamejson",
+P.add_argument("-outnj", "--outnamejson",
                type=str,
-               dest='jsonname',
-               default='enso_bellenger.json',
+               dest='outnamejson',
                help="Output path for jsons")
-P.add_argument("--outpd", "--outpathdata",
+P.add_argument("-outpd", "--outpathdata",
                type=str,
                dest='outpathdata',
-               default='.',
                help="Output path for data")
 
 param = P.get_parameter()
@@ -87,15 +75,23 @@ var = param.variable
 varobs = param.variableobs
 if varobs == '': varobs = var
 outpathjsons = param.outpathjsons
-outfilejson = param.jsonname
+outfilejson = param.outnamejson
 outpathdata = param.outpathdata
+
+print modpath
+print obspath
+print mods
+print var
+
+#sys.exit()
 
 ##########################################################
 libfiles = ['monthly_variability_statistics.py',
-            'slice_tstep.py']
+            #'slice_tstep.py',
+           ]
 
 for lib in libfiles:
-  execfile(os.path.join('./lib/',lib))
+  execfile(os.path.join('.',lib))
 ##########################################################
 
 # Setup where to output resulting ---
@@ -141,19 +137,26 @@ for mod in models:
 
     sstFile = (modpath.replace('MOD', mod)).replace('VAR',sstName) ## Will need land mask out at some point...!
     tauxFile = (modpath.replace('MOD', mod)).replace('VAR',tauxName)
+
+    print sstFile
+    print tauxFile
   
     try:
         #f = cdms2.open(file_path)   ### Major difference between Eric's code and this driver: where to open the file?! in driver? in lib?
         #enso_stat_dic[mods_key][mod]['input_data'] = file_path
-        enso_stat_dic[mod]['input_data'] = file_path
     
-        if debug: print file_path 
+        #if debug: print file_path 
       
         for metric in metrics:
+
+            print metric
+
             if metric == 'EnsoAmpl':
-                tmp_dict = EnsoAmpl(sstfile, sstname, ninobox)
+                tmp_dict = EnsoAmpl(sstFile, sstName, ninoBox)
+                enso_stat_dic[mod][metric]['input_data'] = [sstFile]
             elif metric == 'EnsoMu':
                 tmp_dict = EnsoMu(sstFile, tauxFile, sstName, tauxName)
+                enso_stat_dic[mod][metric]['input_data'] = [sstFile, tauxFile]
         
             # Record returned metric dictionary to mother dictionay for json ---
             #enso_stat_dic[mods_key][mod][metric]['entire'] = tmp_dict
