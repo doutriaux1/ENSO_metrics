@@ -1,0 +1,684 @@
+{
+    "DISCLAIMER": "USER-NOTICE: The results in this file were produced with the PMP v1.1 (https://github.com/PCMDI/pcmdi_metrics). They are for research purposes only. They are subject to ongoing quality control and change as the PMP software advances, interpolation methods are modified, observational data sets are updated, problems with model data are corrected, etc. Use of these results for research (presentation, publications, etc.) should reference: Gleckler, P. J., C. Doutriaux, P. J. Durack, K. E. Taylor, Y. Zhang, and D. N. Williams, E. Mason, and J. Servonnat (2016), A more powerful reality test for climate models, Eos, 97, doi:10.1029/2016EO051663. If any problems are uncovered in using these results please contact the PMP development team at pcmdi-metrics@llnl.gov\n",
+    "REFERENCE": "The statistics in this file are based on Bellenger, H et al. Clim Dyn (2014) 42:1999-2018. doi:10.1007/s00382-013-1783-z",
+    "RESULTS": {
+        "ACCESS1-0": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.8055095010194859
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.259440226039346,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.394171094027782
+            }
+        },
+        "ACCESS1-3": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.7587894687463163
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.0224838853761202,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.58895865112039
+            }
+        },
+        "BNU-ESM": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.BNU-ESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 1.4815057552296347
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.BNU-ESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.BNU-ESM.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -0.10675688666460648,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": -6.672528230316412
+            }
+        },
+        "CMCC-CESM": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 1.343766664503934
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.CMCC-CESM.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.948965691826519,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 6.649829828838206
+            }
+        },
+        "CMCC-CM": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.6536997137336251
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.CMCC-CM.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.8495257838241823,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 8.33718788484194
+            }
+        },
+        "CMCC-CMS": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CMS.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.9099567971508693
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CMCC-CMS.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.CMCC-CMS.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -3.668679671506741,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 10.994461065917374
+            }
+        },
+        "CSIRO-Mk3-6-0": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CSIRO-Mk3-6-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.7631265487686026
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CSIRO-Mk3-6-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.CSIRO-Mk3-6-0.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -0.21764223090611523,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.714877663822167
+            }
+        },
+        "CanCM4": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CanCM4.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 45,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 1.0148267973297462
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.CanCM4.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.CanCM4.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -5.125315798695216,
+                "nyears": 45,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 7.680535890450468
+            }
+        },
+        "GISS-E2-H": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-H.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.6621052745940341
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-H.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.GISS-E2-H.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 2.439091530739472,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.4088908869641985
+            }
+        },
+        "GISS-E2-H-CC": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-H-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 161,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.9393382828326885
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-H-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.GISS-E2-H-CC.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 2.6058277650760644,
+                "nyears": 161,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.337622775004115
+            }
+        },
+        "GISS-E2-R": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-R.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.5847371860561041
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-R.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.GISS-E2-R.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -0.4217498382901965,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 9.563927337747241
+            }
+        },
+        "GISS-E2-R-CC": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-R-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 161,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.6023235932250939
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.GISS-E2-R-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.GISS-E2-R-CC.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 2.4942274243453024,
+                "nyears": 161,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 8.566299917427465
+            }
+        },
+        "HadCM3": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadCM3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 146,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.920110705721223
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadCM3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.HadCM3.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.04970677484549668,
+                "nyears": 146,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 8.018357299622554
+            }
+        },
+        "HadGEM2-AO": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-AO.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 146,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.833819444850238
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-AO.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.HadGEM2-AO.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 2.6766516884247973,
+                "nyears": 146,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 4.3421800095758
+            }
+        },
+        "HadGEM2-CC": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 146,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.922396443355267
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-CC.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.HadGEM2-CC.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -0.2384451635059115,
+                "nyears": 146,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 4.459640737314131
+            }
+        },
+        "HadGEM2-ES": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-ES.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 146,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.9106048389622283
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.HadGEM2-ES.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.HadGEM2-ES.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.011920512749225232,
+                "nyears": 146,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.1616097343910345
+            }
+        },
+        "IPSL-CM5A-LR": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.8140212374612439
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 1.2092940838383792,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 4.134103621480415
+            }
+        },
+        "MIROC-ESM": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC-ESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.5226631007999325
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC-ESM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MIROC-ESM.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.6937578738933725,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 6.851870739010281
+            }
+        },
+        "MIROC-ESM-CHEM": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC-ESM-CHEM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.5362142757982393
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC-ESM-CHEM.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MIROC-ESM-CHEM.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.6605321642906983,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 6.846798524926573
+            }
+        },
+        "MIROC4h": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC4h.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 56,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.6703996114175718
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC4h.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MIROC4h.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 1.2882480593737808,
+                "nyears": 56,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 7.980883936373563
+            }
+        },
+        "MIROC5": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC5.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 163,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 1.1624564076031705
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MIROC5.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MIROC5.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -0.8996001259059287,
+                "nyears": 163,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 9.988230338762502
+            }
+        },
+        "MPI-ESM-LR": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MPI-ESM-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.8376883903409001
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MPI-ESM-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MPI-ESM-LR.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.257190440161288,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 3.2648450033024963
+            }
+        },
+        "MPI-ESM-MR": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MPI-ESM-MR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.6811796357501892
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.MPI-ESM-MR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.MPI-ESM-MR.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -1.9283044265329288,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 4.9214007915458815
+            }
+        },
+        "inmcm4": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.inmcm4.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.5811103043237593
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.inmcm4.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.inmcm4.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 0.5757273215426792,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 8.346444710705942
+            }
+        }
+    },
+    "json_structure": [
+        "model",
+        "metric",
+        "item",
+        "value or description"
+    ],
+    "json_version": 3.0,
+    "provenance": {
+        "commandLine": "./driver_enso_metrics.py -p my_param.py",
+        "conda": {
+            "DefaultEnvironment": "/export_backup/lee1043/anaconda2/envs/pmp_nightly",
+            "IsPrivate": "False",
+            "Platform": "linux-64",
+            "PythonVersion": "2.7.13.final.0",
+            "RootEnvironment": "/export_backup/lee1043/anaconda2  (writable)",
+            "Version": "4.3.24",
+            "buildVersion": "not installed",
+            "envVersion": "4.3.24"
+        },
+        "date": "2017-10-04 13:50:34",
+        "openGL": {
+            "GLX": {
+                "client": {},
+                "server": {}
+            }
+        },
+        "osAccess": false,
+        "packages": {
+            "CDP": "2017.09.07",
+            "PMP": "1.1.2.2017.06.30.19.40.66ce8fec99c4e1d404dc0e5f25d4e6f8e6339f66",
+            "PMPObs": null,
+            "blas": null,
+            "cdms": "2.12",
+            "cdtime": "2.12",
+            "cdutil": "2.12",
+            "clapack": "3.2.1",
+            "esmf": "7.0.0",
+            "esmpy": "7.0.0",
+            "genutil": "2.12",
+            "lapack": "3.6.1",
+            "matplotlib": "2.0.2",
+            "mesalib": null,
+            "numpy": "1.13.1",
+            "python": "2.7.13",
+            "vcs": "2.12.2017.09.13.00.29.5669624a25139ad2e19e4af8b921d0571338375d",
+            "vtk": "7.1.0.2.12"
+        },
+        "platform": {
+            "Name": "crunchy.llnl.gov",
+            "OS": "Linux",
+            "Version": "2.6.32-696.3.1.el6.x86_64"
+        },
+        "userId": "lee1043"
+    }
+}
