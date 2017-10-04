@@ -32,10 +32,10 @@ def get_slope_linear_regression_from_anomaly(y,x,sign_x):
    if sign_x == 0:
       results = genutil.statistics.linearregression(y_area_avg_anom,x=x_area_avg_anom)
    elif sign_x == 1:
-      idxplus = numpy.nonzero (x_area_avg_anom >= 0.)
+      idxplus = numpy.nonzero(x_area_avg_anom >= 0.)
       results = genutil.statistics.linearregression(y_area_avg_anom[idxplus[0].transpose],x=x_area_avg_anom[idxplus])
    elif sign_x == -1:
-      idxneg = numpy.nonzero (x_area_avg_anom <= 0.)
+      idxneg = numpy.nonzero(x_area_avg_anom <= 0.)
       results = genutil.statistics.linearregression(y_area_avg_anom[idxneg[0].transpose],x=x_area_avg_anom[idxneg])
    slope, intercept = results
    return(float(slope))
