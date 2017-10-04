@@ -1,3 +1,8 @@
+'''
+Author: Ji-Woo Lee, Yann Planton 
+'''
+
+
 def interannual_variabilty_std_annual_cycle_removed(d):
    import cdutil, genutil
    d_area_avg = cdutil.averager(d,axis='xy')
