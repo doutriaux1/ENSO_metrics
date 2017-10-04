@@ -16,9 +16,6 @@ import collections
 from collections import defaultdict
 from EnsoMetricsLib import EnsoAmpl, EnsoMu
 
-debug = True
-#debug = False
-
 #########################################################
 P = PMPParser() # Includes all default options
 
@@ -132,13 +129,7 @@ for mod in models:
     print sstFile
     print tauxFile
   
-    #try:
-    if 1:
-        #f = cdms2.open(file_path)   ### Major difference between Eric's code and this driver: where to open the file?! in driver? in lib?
-        #enso_stat_dic[mods_key][mod]['input_data'] = file_path
-    
-        #if debug: print file_path 
-      
+    try:
         for metric in metrics:
 
             print metric
@@ -152,8 +143,7 @@ for mod in models:
         
             enso_stat_dic[mod][metric] = tmp_dict
         
-    else:
-    #except:
+    except:
         print 'failed for ', mod
   
 #=================================================
