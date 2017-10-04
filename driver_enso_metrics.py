@@ -8,7 +8,6 @@ import cdms2
 import copy
 import sys
 import os
-import string
 import json
 import pcmdi_metrics
 from pcmdi_metrics.pcmdi.pmp_parser import PMPParser
@@ -51,6 +50,7 @@ P.add_argument("-mx", "--metrics",
                type=str,
                dest='metrics',
                help="List of metrics")
+
 P.add_argument("--sstName",
                type=str,
                dest='sstName',
@@ -59,6 +59,25 @@ P.add_argument("--tauxName",
                type=str,
                dest='tauxName',
                help="Variable name for taux in the model")
+
+P.add_argument("--sstNameObs",
+               type=str,
+               dest='sstName',
+               help="Variable name for SST in the observation")
+P.add_argument("--tauxNameObs",
+               type=str,
+               dest='tauxName',
+               help="Variable name for taux in the observation")
+
+P.add_argument("--sstObsPath",
+               type=str,
+               dest='sstObsPath',
+               help="Directory path to obs monthly SST field")
+P.add_argument("--tauuObsPath",
+               type=str,
+               dest='tauuObsPath',
+               help="Directory path to obs monthly tauu field")
+
 P.add_argument("--ninoBox",
                type=str,
                dest='ninoBox',
@@ -67,26 +86,14 @@ P.add_argument("--ninoBox",
 param = P.get_parameter()
 
 modpath = param.modpath
-obspath = param.obspath
 mods = param.modnames
-var = param.variable
-varobs = param.variableobs
-if varobs == '': varobs = var
 outpathjsons = param.outpathjsons
 outfilejson = param.outnamejson
 outpathdata = param.outpathdata
 metrics = param.metrics
-sstName = param.sstName
-tauxName = param.tauxName
 ninoBox = param.ninoBox
 
-print modpath
-print obspath
-print mods
-print var
 print metrics
-print sstName
-print tauxName
 print ninoBox
 ##########################################################
 
@@ -99,9 +106,7 @@ except BaseException:
 
 # Insert observation at the beginning of the loop ---
 models = copy.copy(param.modnames)
-#if obspath != '':
-#    models.insert(0,'obs')
-#............... Let's think about OBS data later...
+models.insert(0,'obs')
 
 # Dictionary to save result ---
 def tree(): return defaultdict(tree)
@@ -113,23 +118,24 @@ enso_stat_dic = tree() # Use tree dictionary to avoid declearing everytime
 for mod in models:
     print ' ----- ', mod,' ---------------------'
   
-    #if mod == 'obs':
-    #    file_path = obspath
-    #    varname = varobs
-    #    mods_key = 'OBSERVATION'
-    #else:
-    #    file_path = modpath.replace('MODS', mod)
-    #    varname = var
-    #    mods_key = 'MODELS'
-    #............... Let's think about OBS data later...
+    if mod == 'obs':
+        sstFile = param.sstObsPath 
+        tauxFile = param.tauxObsPath
 
-    sstFile = (modpath.replace('MOD', mod)).replace('VAR',sstName) ## Will need land mask out at some point...!
-    tauxFile = (modpath.replace('MOD', mod)).replace('VAR',tauxName)
+        sstName = param.sstNameObs
+        tauxName = param.tauxNameObs
+    else:
+        sstFile = (modpath.replace('MOD', mod)).replace('VAR',sstName) ## Will need land mask out at some point...!
+        tauxFile = (modpath.replace('MOD', mod)).replace('VAR',tauxName)
+
+        sstName = param.sstName
+        tauxName = param.tauxName
 
     print sstFile
     print tauxFile
   
-    try:
+    #try:
+    if 1:
         for metric in metrics:
 
             print metric
@@ -142,8 +148,8 @@ for mod in models:
                 tmp_dict['input_data'] = [sstFile, tauxFile]
         
             enso_stat_dic[mod][metric] = tmp_dict
-        
-    except:
+    else:    
+    #except:
         print 'failed for ', mod
   
 #=================================================
@@ -163,7 +169,7 @@ metrics_dictionary["DISCLAIMER"] = disclaimer
 metrics_dictionary["REFERENCE"] = "The statistics in this file are based on Bellenger, H et al. Clim Dyn (2014) 42:1999-2018. doi:10.1007/s00382-013-1783-z"
 metrics_dictionary["RESULTS"] = enso_stat_dic  # collections.OrderedDict()
 
-OUT.var = var
+#OUT.var = var
 OUT.write(
     metrics_dictionary,
     json_structure=["model", "metric", "item", "value or description"],
