@@ -2,6 +2,58 @@
     "DISCLAIMER": "USER-NOTICE: The results in this file were produced with the PMP v1.1 (https://github.com/PCMDI/pcmdi_metrics). They are for research purposes only. They are subject to ongoing quality control and change as the PMP software advances, interpolation methods are modified, observational data sets are updated, problems with model data are corrected, etc. Use of these results for research (presentation, publications, etc.) should reference: Gleckler, P. J., C. Doutriaux, P. J. Durack, K. E. Taylor, Y. Zhang, and D. N. Williams, E. Mason, and J. Servonnat (2016), A more powerful reality test for climate models, Eos, 97, doi:10.1029/2016EO051663. If any problems are uncovered in using these results please contact the PMP development team at pcmdi-metrics@llnl.gov\n",
     "REFERENCE": "The statistics in this file are based on Bellenger, H et al. Clim Dyn (2014) 42:1999-2018. doi:10.1007/s00382-013-1783-z",
     "RESULTS": {
+        "ACCESS1-0": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.8055095010194859
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.ACCESS1-0.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.259440226039346,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.394171094027782
+            }
+        },
+        "ACCESS1-3": {
+            "EnsoAmpl": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml"
+                ],
+                "method": "Standard deviation of SST in nino3",
+                "name": "ENSO amplitude",
+                "nyears": 156,
+                "ref": "Using CDAT std dev calculation",
+                "units": "C",
+                "value": 0.7587894687463163
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.ACCESS1-3.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": -2.0224838853761202,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 5.58895865112039
+            }
+        },
         "IPSL-CM5A-LR": {
             "EnsoAmpl": {
                 "input_data": [
@@ -12,8 +64,20 @@
                 "nyears": 156,
                 "ref": "Using CDAT std dev calculation",
                 "units": "C",
-                "value": 0.8140212374612439,
-                "varname": "ts"
+                "value": 0.8140212374612439
+            },
+            "EnsoMu": {
+                "input_data": [
+                    "/work/cmip5/historical/atm/mo/ts/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.ts.ver-1.latestX.xml",
+                    "/work/cmip5/historical/atm/mo/tauu/cmip5.IPSL-CM5A-LR.historical.r1i1p1.mo.atm.Amon.tauu.ver-1.latestX.xml"
+                ],
+                "method": "Regression of nino4 tauxA over nino3 sstA",
+                "name": "Bjerknes feedback (mu)",
+                "nonlinearity": 1.2092940838383792,
+                "nyears": 156,
+                "ref": "Using CDAT regression calculation",
+                "units": "10-3 N/m2/C",
+                "value": 4.134103621480415
             }
         }
     },
@@ -27,7 +91,7 @@
     "provenance": {
         "commandLine": "./driver_enso_metrics.py -p my_param.py",
         "conda": {
-            "DefaultEnvironment": "/export_backup/lee1043/anaconda2/envs/uvcdat-2.12",
+            "DefaultEnvironment": "/export_backup/lee1043/anaconda2/envs/pmp_nightly",
             "IsPrivate": "False",
             "Platform": "linux-64",
             "PythonVersion": "2.7.13.final.0",
@@ -36,7 +100,7 @@
             "buildVersion": "not installed",
             "envVersion": "4.3.24"
         },
-        "date": "2017-09-28 10:41:52",
+        "date": "2017-10-04 13:24:37",
         "openGL": {
             "GLX": {
                 "client": {},
@@ -45,7 +109,7 @@
         },
         "osAccess": false,
         "packages": {
-            "CDP": "1.0.3",
+            "CDP": "2017.09.07",
             "PMP": "1.1.2.2017.06.30.19.40.66ce8fec99c4e1d404dc0e5f25d4e6f8e6339f66",
             "PMPObs": null,
             "blas": null,
@@ -57,11 +121,11 @@
             "esmpy": "7.0.0",
             "genutil": "2.12",
             "lapack": "3.6.1",
-            "matplotlib": "2.0.0",
-            "mesalib": "17.2.0",
-            "numpy": "1.11.3",
+            "matplotlib": "2.0.2",
+            "mesalib": null,
+            "numpy": "1.13.1",
             "python": "2.7.13",
-            "vcs": "2.12",
+            "vcs": "2.12.2017.09.13.00.29.5669624a25139ad2e19e4af8b921d0571338375d",
             "vtk": "7.1.0.2.12"
         },
         "platform": {

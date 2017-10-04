@@ -3,7 +3,18 @@ obspath = "/clim_obs/obs/ocn/mo/tos/UKMETOFFICE-HadISST-v1-1/130122_HadISST_sst.
 
 # Directory path for models
 modpath = "/work/cmip5/historical/atm/mo/VAR/cmip5.MOD.historical.r1i1p1.mo.atm.Amon.VAR.ver-1.latestX.xml"
-modnames = ["IPSL-CM5A-LR"] #"ACCESS1-0 ACCESS1-3"
+#modnames = ["IPSL-CM5A-LR"]
+modnames = ["ACCESS1-0", "ACCESS1-3", 
+            "BNU-ESM", 
+            "CMCC-CESM", "CMCC-CM", "CMCC-CMS", 
+            "CSIRO-Mk3-6-0", "CanCM4", 
+            "GISS-E2-H-CC", "GISS-E2-H", "GISS-E2-R-CC", "GISS-E2-R", 
+            "HadCM3", "HadGEM2-AO", "HadGEM2-CC", "HadGEM2-ES", 
+            "IPSL-CM5A-LR", 
+            "MIROC-ESM-CHEM", "MIROC-ESM", "MIROC4h", "MIROC5", 
+            "MPI-ESM-LR", "MPI-ESM-MR", 
+            "inmcm4"
+           ]
 
 # Variables
 variable = "ts"
@@ -14,11 +25,10 @@ variableobs = "sst"
 #outpathjsons = "/work/lee1043/cdat/pmp/enso/test"
 outpathdata = "."
 outpathjsons = "."
-outnamejson = "test.json"
+outnamejson = "test2.json"
 
 # Metrics
 metrics = ['EnsoAmpl', 'EnsoMu']
-#metrics = ['EnsoAmpl']
 
 # Variable name and nino box
 sstName = 'ts'
