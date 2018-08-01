@@ -1,5 +1,5 @@
 {% set name = "ensometrics" %}
-{% set version = "0.1" %}
+{% set version = "0.1.1" %}
 
 package:
     name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
     git_url: https://github.com/eguil/Enso_metrics.git
-    git_rev: master
+    git_rev: v{{ version }}
     
 
 build:
